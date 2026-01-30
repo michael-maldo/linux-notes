@@ -1,0 +1,66 @@
+---
+sidebar_position: 1
+---
+
+#  variables and arguments
+
+## assignment
+```
+name=value                # format, no spaces in between = sign
+greetings="Hello World"   # assigns a string with a space
+number=42                 # assign a number
+```
+
+## accessing values
+
+```
+echo "$GREETING" # Outputs: Hello World
+echo $NUMBER     # Outputs: 42
+```
+
+## variable naming
+- names can contain alphanumeric characters and underscores but cannot start with a number
+- they are case-sensitive (name, Name, and NAME are different).
+
+## Types of Variables
+Bash categorizes variables by their scope and purpose.
+- User-defined Created by the user, local to the current shell or script.
+```
+my_var="value"
+```
+- Environment
+    Global settings accessible by child processes.
+```
+export PATH
+```
+- Local Limited to the function in which they are defined.
+```
+local my_var="value"
+```
+- Special, Reserved, built-in variables that store dynamic data about the shell or script execution.
+```
+$0, $?
+```
+
+## Special Variables
+Bash includes several automatic variables for script and process information, such as:
+- $0 : The script's filename.
+- $1, $2, ...: Command-line arguments.
+- $#: The number of arguments.
+- $?: The exit status of the last command.
+- $$: The current script's Process ID.
+- $USER, $HOSTNAME, $SECONDS: Environment variables with system information.
+
+Advanced Usage
+- Command Substitution: Store command output in a variable using `$(command)` or \`command\`.
+```
+file_count=$(ls -l | wc -l)
+echo "There are $file_count files."
+
+```
+
+## Read-only Variables
+Use readonly or declare -r to prevent value changes after assignment.
+
+## Unsetting Variables
+Use unset to remove a variable.
