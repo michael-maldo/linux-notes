@@ -79,7 +79,7 @@ const config: Config = {
       title: 'linux',
       logo: {
         alt: 'linux Logo',
-        src: 'img/logo.svg',
+        src: 'img/linux.png',
       },
       items: [
         {
