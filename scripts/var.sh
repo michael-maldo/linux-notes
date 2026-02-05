@@ -1,14 +1,23 @@
 #!/bin/sh
 
-#SECONDS=10
+SECONDS=0
 
 echo $0 
 
 echo $#
 
 echo "hello"
-ls docs
+ls var.sh
+echo $?
+command=$(ls var.sh)
+echo ${command}.bk
 
 echo $USER, $HOSTNAME, $SECONDS
 
-echo $?
+
+ENV=${1:-dev}
+echo $ENV
+
+docker stop a
+
+echo $SECONDS

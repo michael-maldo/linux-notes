@@ -1,0 +1,59 @@
+---
+sidebar_position: 9
+---
+# filesystem operations
+
+
+## filenames, wildcards, & pathname expansion
+
+| wildcard | matches |
+| :--- | :--- |
+| ? | any single character |
+| * | any string of characters |
+| [set] | any character in set |
+| [!set] | any character NOT in set |
+
+```bash title="bash wildcards"
+$ ls -l
+total 0
+-rw-rw-r-- 1 deploy deploy 0 Feb  5 18:04 prog.c
+-rw-rw-r-- 1 deploy deploy 0 Feb  5 18:04 prog.o
+-rw-rw-r-- 1 deploy deploy 0 Feb  5 18:04 prog.txt
+$ ls -l prog.?
+-rw-rw-r-- 1 deploy deploy 0 Feb  5 18:04 prog.c
+-rw-rw-r-- 1 deploy deploy 0 Feb  5 18:04 prog.o
+$ ls -l prog.*
+-rw-rw-r-- 1 deploy deploy 0 Feb  5 18:04 prog.c
+-rw-rw-r-- 1 deploy deploy 0 Feb  5 18:04 prog.o
+-rw-rw-r-- 1 deploy deploy 0 Feb  5 18:04 prog.txt
+$ ls -l prog.?xt
+-rw-rw-r-- 1 deploy deploy 0 Feb  5 18:04 prog.txt
+$ ls -l prog.t?t
+-rw-rw-r-- 1 deploy deploy 0 Feb  5 18:04 prog.txt
+$
+```
+
+| set expression | matches |
+| :--- | :--- |
+| [abc] | a, b, or c |
+| [.,;] | Period, comma, or semicolon |
+| [-_] | Dash or underscore |
+| [a-c] | a, b, or c |
+| [a-z] | All lowercase letters |
+| [!0-9] | All non-digits |
+| [0-9!] | All digits and exclamation point |
+| [a-zA-Z] | All lower- and uppercase letters |
+| [a-zA-Z0-9_-] | All letters, all digits, underscore, and dash |
+
+## commands summary
+
+```
+ls
+find /var/log -name "*.log"
+du -sh *
+df -h
+And redirection:
+command > out.txt
+command >> out.txt
+command 2>&1
+```
