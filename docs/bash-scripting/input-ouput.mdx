@@ -2,9 +2,47 @@
 sidebar_position: 11
 ---
 # input / output
+- file I/O takes a form of stream of bytes
+- anything on the system that produces or accepts data is treated like a file - e.g. disks, networks, terminals
 
 ## standard I/O
+- input `stdin`
+    - input from keyboard
+- output `stdout`
+    - display on screen
+- error `stderr`
+    - display on screen
+
+## data filtering utilities
+| utility | function |
+| :--- | :--- |
+| cat | copy input to output |
+| grep | search for strings in the input|
+| sort | sort lines in the input |
+| cut | extract columns in the input |
+| sed | perform editing on the input |
+| tr | translate char from the input to other char on the output|
+| awk | |
 
 ## I/O redirection
+- `>` stdin redirection
+- `<` stdout redirection
+
+```
+deploy@vmi2682430:~/test$ echo 'this is a test file # 1' > file1
+deploy@vmi2682430:~/test$ cat file1
+this is a test file # 1
+deploy@vmi2682430:~/test$ cat < file1 > file2
+deploy@vmi2682430:~/test$ cat file2
+this is a test file # 1
+deploy@vmi2682430:~/test$
+```
 
 ## pipelines
+- initiate command1
+- redirect command1 `stdout` to command2 `stdin`
+- redirection command2 `stdout` to commandN `stdin`
+
+```bash title="pipeline"
+command1 | command2 | commandN
+```
