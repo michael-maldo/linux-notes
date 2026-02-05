@@ -45,6 +45,35 @@ $
 | [a-zA-Z] | All lower- and uppercase letters |
 | [a-zA-Z0-9_-] | All letters, all digits, underscore, and dash |
 
+
+## brace expansion
+- list `{a,b,c}`
+- range `{e-k} {4-10}`
+- nested `{b{a,e,i,},d}`
+
+```
+deploy@vmi2682430:~/test$
+deploy@vmi2682430:~/test$ echo pre{A,B,C}post
+preApost preBpost preCpost
+deploy@vmi2682430:~/test$ echo {A,B,C}
+A B C
+deploy@vmi2682430:~/test$ echo {A,B{1,2,3}C,D}
+A B1C B2C B3C D
+deploy@vmi2682430:~/test$ echo {A,B{1..10}C,D}
+A B1C B2C B3C B4C B5C B6C B7C B8C B9C B10C D
+deploy@vmi2682430:~/test$
+deploy@vmi2682430:~/test$
+deploy@vmi2682430:~/test$ echo pre{c-k}post
+pre{c-k}post
+deploy@vmi2682430:~/test$ echo pre{c..k}post
+precpost predpost preepost prefpost pregpost prehpost preipost prejpost prekpost
+deploy@vmi2682430:~/test$ echo pre{C..K}post
+preCpost preDpost preEpost preFpost preGpost preHpost preIpost preJpost preKpost
+deploy@vmi2682430:~/test$ echo pre{5..9}post
+pre5post pre6post pre7post pre8post pre9post
+deploy@vmi2682430:~/test$
+```
+
 ## commands summary
 
 ```
